@@ -9,11 +9,11 @@ public class BottomBarManagerScript : MonoBehaviour
     public GameObject plants;
     public GameObject upgrades;
 
-    private int screenIndex;
+    //private int screenIndex;
 
     void Start()
     {
-        screenIndex = 2;
+        //screenIndex = 2;
     }
 
     void Update()
@@ -23,14 +23,14 @@ public class BottomBarManagerScript : MonoBehaviour
 
     public void ToHome()
     {
-        screenIndex = 2;
+        //screenIndex = 2;
         upgrades.SetActive(false);
         plants.SetActive(true);
     }
 
     public void ToUpgrades()
     {
-        screenIndex = 3;
+        //screenIndex = 3;
         upgrades.SetActive(true);
         plants.SetActive(false);
     }

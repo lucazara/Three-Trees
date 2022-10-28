@@ -11,29 +11,38 @@ public class TreeManagerScript : MonoBehaviour
     [SerializeField]
     private GameObject LymphManager;
 
+    [SerializeField]
+    private GameObject bottomBar;
+
+    public GameObject[] tree_objects;
+
     void Start()
     {
         trees = new MyTree[3];
         for (int i = 0; i < 3; i++)
-            trees[i] = new MyTree();
+            trees[i] = new MyTree(tree_objects[i], i);
 
         CalculateLymphPerClick();
     }
 
     void Update()
     {
-        foreach(Touch touch in Input.touches)
+        if (bottomBar.GetComponent<BottomBarManagerScript>().screenIndex == 2)
         {
-            if (touch.phase == TouchPhase.Began)
+            foreach (Touch touch in Input.touches)
             {
-                LymphManager.GetComponent<LymphManagerScript>().AddLymph(lymph_per_click);
+                if (touch.phase == TouchPhase.Began)
+                {
+                    LymphManager.GetComponent<LymphManagerScript>().AddLymph(lymph_per_click);
+                }
             }
         }
+        
 
         if (Input.GetKeyDown("c"))
         {
             PlayerPrefs.DeleteAll();
-            Debug.Log("player prefs cleared");
+            Debug.Log("All player prefs cleared");
         }
     }
 

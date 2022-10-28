@@ -5,33 +5,23 @@ using UnityEngine.UI;
 
 public class BottomBarManagerScript : MonoBehaviour
 {
-
-    public GameObject plants;
-    public GameObject upgrades;
-
-    //private int screenIndex;
+    public int screenIndex;
 
     void Start()
     {
-        //screenIndex = 2;
-    }
-
-    void Update()
-    {
-
+       screenIndex = 2;
     }
 
     public void ToHome()
     {
-        //screenIndex = 2;
-        upgrades.SetActive(false);
-        plants.SetActive(true);
+        screenIndex = 2;
+
     }
 
     public void ToUpgrades()
     {
-        //screenIndex = 3;
-        upgrades.SetActive(true);
-        plants.SetActive(false);
+        screenIndex = 3;
+
+
     }
 }

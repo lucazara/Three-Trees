@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TreeManagerScript : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class TreeManagerScript : MonoBehaviour
             trees[i] = new MyTree(tree_objects[i], i);
 
         CalculateLymphPerClick();
+        UpdateCostUpgradeLabel();
+        UpdateVisibleUpagrades();
     }
 
     void Update()
@@ -52,7 +55,7 @@ public class TreeManagerScript : MonoBehaviour
         if (LymphManager.GetComponent<LymphManagerScript>().Buy(tree.cost_upgrade))
         {
             tree.Upgrade();
-            CalculateLymphPerClick();
+            UpdateCostUpgradeLabel();
         }
     }
 
@@ -64,6 +67,30 @@ public class TreeManagerScript : MonoBehaviour
             lymph_per_click += tree.lymph_per_click;
         }
         return lymph_per_click;
+    }
+
+    public void UpdateVisibleUpagrades()
+    {
+        foreach (MyTree tree in trees)
+        {
+            if (tree.cost_upgrade <= LymphManager.GetComponent<LymphManagerScript>().lymph)
+            {
+                tree.tree_object.transform.GetChild(2).gameObject.SetActive(true);
+            }
+            else
+            {
+                tree.tree_object.transform.GetChild(2).gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void UpdateCostUpgradeLabel()
+    {
+        foreach (MyTree tree in trees)
+        {
+            GameObject label = tree.tree_object.transform.GetChild(3).gameObject;
+            label.GetComponent<Text>().text = "up: " + tree.cost_upgrade.ToString();
+        }
     }
 
 }

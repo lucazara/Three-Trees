@@ -52,5 +52,7 @@ public class MyTree
 
         tree_object.transform.GetChild(0).GetComponent<Text>().text = "+" + lymph_per_click.ToString();
         tree_object.transform.GetChild(1).GetComponent<Text>().text = "level " + level.ToString();
+
+
     }
 }

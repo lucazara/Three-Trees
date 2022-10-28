@@ -10,17 +10,19 @@ public class LymphManagerScript : MonoBehaviour
     [SerializeField]
     private GameObject lymphLabel;
 
+    [SerializeField]
+    private GameObject treeManager;
+
     void Start()
     {
         lymph = PlayerPrefs.GetInt("lymph", 0);
-        UpdateLymphLabel();
+        OnUpdateLymph();
     }
 
     public void AddLymph(int lymph_added)
     {
         lymph += lymph_added;
-        PlayerPrefs.SetInt("lymph", lymph);
-        UpdateLymphLabel();
+        OnUpdateLymph();
     }
 
     public bool Buy(int lymph_required)
@@ -28,8 +30,8 @@ public class LymphManagerScript : MonoBehaviour
         if (lymph >= lymph_required)
         {
             lymph -= lymph_required;
-            PlayerPrefs.SetInt("lymph", lymph);
-            UpdateLymphLabel();
+            OnUpdateLymph();
+
 
             return true;
         }
@@ -41,4 +43,13 @@ public class LymphManagerScript : MonoBehaviour
     {
         lymphLabel.GetComponent<Text>().text = lymph.ToString() + " lymph";
     }
+
+    private void OnUpdateLymph()
+    {
+        PlayerPrefs.SetInt("lymph", lymph);
+        UpdateLymphLabel();
+
+        treeManager.GetComponent<TreeManagerScript>().UpdateVisibleUpagrades();
+    }
+
 }

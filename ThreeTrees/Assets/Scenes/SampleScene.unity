@@ -445,8 +445,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 438157332}
-        m_TargetAssemblyTypeName: TreeManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 438157334}
+        m_TargetAssemblyTypeName: TreeManager, Assembly-CSharp
         m_MethodName: UpgradeTree
         m_Mode: 3
         m_Arguments:
@@ -747,7 +747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 438157333}
-  - component: {fileID: 438157332}
+  - component: {fileID: 438157334}
   m_Layer: 0
   m_Name: Tree Manager
   m_TagString: Untagged
@@ -755,24 +755,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &438157332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438157331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d504e876ba9b34a7485d0aaad2f182d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LymphManager: {fileID: 1668585668}
-  bottomBar: {fileID: 574089515}
-  tree_objects:
-  - {fileID: 1866276178}
-  - {fileID: 1112809750}
-  - {fileID: 1992389386}
 --- !u!4 &438157333
 Transform:
   m_ObjectHideFlags: 0
@@ -788,6 +770,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &438157334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438157331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13a245c5f7cb48c5aeb008d1c70412f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lymph: 0
+  lymph_per_click: 0
+  tree_objects:
+  - {fileID: 1866276178}
+  - {fileID: 1112809750}
+  - {fileID: 1992389386}
+  bottomBar: {fileID: 574089515}
+  lymphLabel: {fileID: 475581583}
 --- !u!1 &474472310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 574089515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6542d2cb0c954d6594325a0234bb3e1, type: 3}
+  m_Script: {fileID: 11500000, guid: bfa24c00a59d549758b97dde89fe7429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   screenIndex: 0
@@ -1473,8 +1475,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 438157332}
-        m_TargetAssemblyTypeName: TreeManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 438157334}
+        m_TargetAssemblyTypeName: TreeManager, Assembly-CSharp
         m_MethodName: UpgradeTree
         m_Mode: 3
         m_Arguments:
@@ -2224,8 +2226,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 438157332}
-        m_TargetAssemblyTypeName: TreeManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 438157334}
+        m_TargetAssemblyTypeName: TreeManager, Assembly-CSharp
         m_MethodName: UpgradeTree
         m_Mode: 3
         m_Arguments:
@@ -2274,53 +2276,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507080035}
   m_CullTransparentMesh: 1
---- !u!1 &1668585668
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1668585670}
-  - component: {fileID: 1668585669}
-  m_Layer: 0
-  m_Name: Lymph Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1668585669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668585668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0265b3bd1697c47a1924edf3f308b59c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lymph: 0
-  lymphLabel: {fileID: 475581583}
-  treeManager: {fileID: 438157331}
---- !u!4 &1668585670
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668585668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1681893358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,7 +2359,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 574089517}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BottomBarManagerScript, Assembly-CSharp
         m_MethodName: ToHome
         m_Mode: 1
@@ -2741,7 +2696,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 574089517}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BottomBarManagerScript, Assembly-CSharp
         m_MethodName: ToUpgrades
         m_Mode: 1

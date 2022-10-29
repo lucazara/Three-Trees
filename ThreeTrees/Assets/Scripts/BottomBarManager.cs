@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BottomBarManagerScript : MonoBehaviour
+public class BottomBarManager : MonoBehaviour
 {
     public int screenIndex;
 
@@ -15,13 +15,10 @@ public class BottomBarManagerScript : MonoBehaviour
     public void ToHome()
     {
         screenIndex = 2;
-
     }
 
     public void ToUpgrades()
     {
         screenIndex = 3;
-
-
     }
 }

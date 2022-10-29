@@ -3,40 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TreeManagerScript : MonoBehaviour
+public class TreeManager : MonoBehaviour
 {
+    public int lymph;
+    public int lymph_per_click;
+
 
     private MyTree[] trees;
-    private int lymph_per_click;
+    public GameObject[] tree_objects;
 
-    [SerializeField]
-    private GameObject LymphManager;
 
     [SerializeField]
     private GameObject bottomBar;
 
-    public GameObject[] tree_objects;
+    [SerializeField]
+    private GameObject lymphLabel;
+
+
+
+
+    private void OnUpdateLymph()
+    {
+        PlayerPrefs.SetInt("lymph", lymph);
+        lymphLabel.GetComponent<Text>().text = lymph.ToString() + " lymph";
+        UpdateVisibleUpgrades();
+    }
+
+
+
 
     void Start()
     {
+
         trees = new MyTree[3];
         for (int i = 0; i < 3; i++)
             trees[i] = new MyTree(tree_objects[i], i);
 
+        lymph = PlayerPrefs.GetInt("lymph", 0);
+        OnUpdateLymph();
         CalculateLymphPerClick();
         UpdateCostUpgradeLabel();
-        UpdateVisibleUpagrades();
+        UpdateVisibleUpgrades();
     }
 
     void Update()
     {
-        if (bottomBar.GetComponent<BottomBarManagerScript>().screenIndex == 2)
+        if (bottomBar.GetComponent<BottomBarManager>().screenIndex == 2)
         {
             foreach (Touch touch in Input.touches)
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-                    LymphManager.GetComponent<LymphManagerScript>().AddLymph(lymph_per_click);
+                    lymph += lymph_per_click;
+                    OnUpdateLymph();
                 }
             }
         }
@@ -49,31 +68,37 @@ public class TreeManagerScript : MonoBehaviour
         }
     }
 
+
+
     public void UpgradeTree(int index)
     {
         MyTree tree = trees[index];
-        if (LymphManager.GetComponent<LymphManagerScript>().Buy(tree.cost_upgrade))
+        if (lymph >= tree.cost_upgrade)
         {
+            lymph -= tree.cost_upgrade;
+            OnUpdateLymph();
+
             tree.Upgrade();
             UpdateCostUpgradeLabel();
+            CalculateLymphPerClick();
         }
+        
     }
 
-    private int CalculateLymphPerClick()
+
+
+    private void CalculateLymphPerClick()
     {
         lymph_per_click = 0;
         foreach (MyTree tree in trees)
-        {
             lymph_per_click += tree.lymph_per_click;
-        }
-        return lymph_per_click;
     }
 
-    public void UpdateVisibleUpagrades()
+    private void UpdateVisibleUpgrades()
     {
         foreach (MyTree tree in trees)
         {
-            if (tree.cost_upgrade <= LymphManager.GetComponent<LymphManagerScript>().lymph)
+            if (lymph >= tree.cost_upgrade)
             {
                 tree.tree_object.transform.GetChild(2).gameObject.SetActive(true);
             }
@@ -84,7 +109,7 @@ public class TreeManagerScript : MonoBehaviour
         }
     }
 
-    public void UpdateCostUpgradeLabel()
+    private void UpdateCostUpgradeLabel()
     {
         foreach (MyTree tree in trees)
         {

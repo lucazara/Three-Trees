@@ -25,7 +25,7 @@ public class TreeManager : MonoBehaviour
     private void OnUpdateLymph()
     {
         PlayerPrefs.SetInt("lymph", lymph);
-        lymphLabel.GetComponent<Text>().text = lymph.ToString() + " lymph";
+        lymphLabel.GetComponent<Text>().text = lymph.ToString();
         UpdateVisibleUpgrades();
     }
 
@@ -114,7 +114,7 @@ public class TreeManager : MonoBehaviour
         foreach (MyTree tree in trees)
         {
             GameObject label = tree.tree_object.transform.GetChild(3).gameObject;
-            label.GetComponent<Text>().text = "up: " + tree.cost_upgrade.ToString();
+            label.GetComponent<Text>().text = tree.cost_upgrade.ToString();
         }
     }
 

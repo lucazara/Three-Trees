@@ -27,6 +27,8 @@ public class TreeManager : MonoBehaviour
         PlayerPrefs.SetInt("lymph", lymph);
         lymphLabel.GetComponent<Text>().text = lymph.ToString();
         UpdateVisibleUpgrades();
+        UpdateCostUpgradeLabel();
+
     }
 
 
@@ -98,14 +100,8 @@ public class TreeManager : MonoBehaviour
     {
         foreach (MyTree tree in trees)
         {
-            if (lymph >= tree.cost_upgrade)
-            {
-                tree.tree_object.transform.GetChild(2).gameObject.SetActive(true);
-            }
-            else
-            {
-                tree.tree_object.transform.GetChild(2).gameObject.SetActive(false);
-            }
+            GameObject upgradeButton = tree.tree_object.transform.GetChild(2).gameObject;
+            upgradeButton.SetActive(lymph >= tree.cost_upgrade);
         }
     }
 
@@ -114,7 +110,11 @@ public class TreeManager : MonoBehaviour
         foreach (MyTree tree in trees)
         {
             GameObject label = tree.tree_object.transform.GetChild(3).gameObject;
-            label.GetComponent<Text>().text = tree.cost_upgrade.ToString();
+            Text textLabel = label.GetComponent<Text>();
+
+            textLabel.text = tree.cost_upgrade.ToString();
+            textLabel.color = (lymph >= tree.cost_upgrade) ? Color.white : Color.red;
+
         }
     }
 

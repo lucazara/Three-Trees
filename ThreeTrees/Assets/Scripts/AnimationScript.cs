@@ -6,17 +6,16 @@ public class AnimationScript : MonoBehaviour
 {
 
     Animator animator;
+    public BottomBarManager bottomBarManager;
 
-    
-    // Start is called before the first frame update
+
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        animator.SetBool("clcked", Input.touchCount > 0);
+        animator.SetBool("clcked", Input.touchCount > 0 && bottomBarManager.screenIndex == 2);
     }
 }

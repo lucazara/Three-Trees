@@ -10,7 +10,21 @@ public class BottomBarManager : MonoBehaviour
 
     void Start()
     {
-       screenIndex = 2;
+        screenIndex = 2;
+    }
+
+
+
+    public void ToSettings()
+    {
+        screenIndex = 0;
+        home.SetActive(false);
+    }
+
+    public void ToForest()
+    {
+        screenIndex = 1;
+        home.SetActive(false);
     }
 
     public void ToHome()
@@ -23,6 +37,12 @@ public class BottomBarManager : MonoBehaviour
     public void ToUpgrades()
     {
         screenIndex = 3;
+        home.SetActive(false);
+    }
+
+    public void ToShop()
+    {
+        screenIndex = 4;
         home.SetActive(false);
     }
 }

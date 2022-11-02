@@ -9,10 +9,11 @@ public class BottomBarManager : MonoBehaviour
 
     public GameObject home;
     public GameObject upgrades;
+    public GameObject settings;
 
     void Start()
     {
-        screenIndex = 2;
+        ToHome();
     }
 
 
@@ -20,6 +21,7 @@ public class BottomBarManager : MonoBehaviour
     public void ToSettings()
     {
         screenIndex = 0;
+        settings.SetActive(true);
         home.SetActive(false);
         upgrades.SetActive(false);
     }
@@ -27,13 +29,16 @@ public class BottomBarManager : MonoBehaviour
     public void ToForest()
     {
         screenIndex = 1;
+        settings.SetActive(false);
         home.SetActive(false);
         upgrades.SetActive(false);
+
     }
 
     public void ToHome()
     {
         screenIndex = 2;
+        settings.SetActive(false);
         home.SetActive(true);
         upgrades.SetActive(false);
     }
@@ -41,6 +46,7 @@ public class BottomBarManager : MonoBehaviour
     public void ToUpgrades()
     {
         screenIndex = 3;
+        settings.SetActive(false);
         home.SetActive(false);
         upgrades.SetActive(true);
     }
@@ -48,6 +54,7 @@ public class BottomBarManager : MonoBehaviour
     public void ToShop()
     {
         screenIndex = 4;
+        settings.SetActive(false);
         home.SetActive(false);
         upgrades.SetActive(false); 
     }

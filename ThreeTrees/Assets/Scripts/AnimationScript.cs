@@ -16,6 +16,15 @@ public class AnimationScript : MonoBehaviour
 
     void Update()
     {
-        animator.SetBool("clcked", Input.touchCount > 0 && bottomBarManager.screenIndex == 2);
+        bool clicked = false;
+
+        foreach(Touch touch in Input.touches) {
+            if (touch.phase == TouchPhase.Began)
+            {
+                clicked = true;
+                break;
+            }
+        }
+        animator.SetBool("clcked", clicked && bottomBarManager.screenIndex == 2);
     }
 }

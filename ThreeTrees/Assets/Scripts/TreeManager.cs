@@ -46,6 +46,11 @@ public class TreeManager : MonoBehaviour
         CalculateLymphPerClick();
         UpdateCostUpgradeLabel();
         UpdateVisibleUpgrades();
+        for (int i = 0; i < trees.Length; i++)
+        {
+            //Animator animator = tree_objects[i].GetComponent<Animator>();
+            //animator.enabled = false;
+        }
     }
 
     void Update()

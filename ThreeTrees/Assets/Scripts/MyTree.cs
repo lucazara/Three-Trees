@@ -9,7 +9,9 @@ public class MyTree
     public int lymph_per_click;
     public int cost_upgrade;
     public GameObject tree_object;
+    public GameObject forest;
     public int id;
+    public int typeIndex;
 
     public int level;
 
@@ -21,6 +23,7 @@ public class MyTree
         tree_object = t;
         this.id = id;
 
+        typeIndex = (id - (id % 3)) / 3;
 
         tree_object.transform.GetChild(0).GetComponent<Text>().text = "+     " + lymph_per_click.ToString();
         tree_object.transform.GetChild(1).GetComponent<Text>().text = "level " + level.ToString();
@@ -29,6 +32,7 @@ public class MyTree
 
     public void Upgrade() 
     {
+        //TODO: USE TYPEINDEX TO CHANGE LYMPH PER CLICK AND COSTS
         if (level < 10)
         {
             lymph_per_click += level;

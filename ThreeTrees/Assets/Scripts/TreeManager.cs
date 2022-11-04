@@ -7,20 +7,20 @@ public class TreeManager : MonoBehaviour
 {
     public int lymph;
     public int lymph_per_click;
+    public int selectedTreeType;
 
 
+    private MyTree[][] allTrees;
     private MyTree[] trees;
     public GameObject[] tree_objects;
 
 
-    [SerializeField]
-    private GameObject bottomBar;
-
-    [SerializeField]
-    private GameObject lymphLabel;
+    [SerializeField] private GameObject forest;
+    [SerializeField] private GameObject bottomBar;
+    [SerializeField] private GameObject lymphLabel;
 
 
-
+    public Sprite[] treeTypeSprites;
 
     private void OnUpdateLymph()
     {
@@ -28,7 +28,6 @@ public class TreeManager : MonoBehaviour
         lymphLabel.GetComponent<Text>().text = lymph.ToString();
         UpdateVisibleUpgrades();
         UpdateCostUpgradeLabel();
-
     }
 
 
@@ -36,10 +35,27 @@ public class TreeManager : MonoBehaviour
 
     void Start()
     {
+        allTrees = new MyTree[4][];
+        for (int i = 0; i < allTrees.Length; i++)
+        {
+            MyTree[] t = new MyTree[3];
+            for (int j = 0; j < 3; j++)
+            {
+                t[j] = new MyTree(tree_objects[j], 3 * i + j);
+               
+            }
+
+            allTrees[i] = t;
+        }
 
         trees = new MyTree[3];
+        UpdateSelectedTreeType();
+
+
         for (int i = 0; i < 3; i++)
             trees[i] = new MyTree(tree_objects[i], i);
+
+
 
         lymph = PlayerPrefs.GetInt("lymph", 0);
         OnUpdateLymph();
@@ -93,6 +109,19 @@ public class TreeManager : MonoBehaviour
     }
 
 
+    public void UpdateSelectedTreeType()
+    {
+        selectedTreeType = forest.GetComponent<Forest>().treeSelectedIndex;
+
+        for (int i = 0; i < 3; i++)
+        {
+            trees[i] = new MyTree(tree_objects[i], 3 * selectedTreeType + i);
+            trees[i].tree_object.GetComponent<Image>().sprite = treeTypeSprites[selectedTreeType];
+        }
+
+    }
+
+
 
     private void CalculateLymphPerClick()
     {
@@ -122,5 +151,4 @@ public class TreeManager : MonoBehaviour
 
         }
     }
-
 }

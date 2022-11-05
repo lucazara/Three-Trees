@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class Forest : MonoBehaviour
     public float rate = 0.1f;
     public bool lerping = true;
 
+    float t;
+
 
     public GameObject treeManager;
 
@@ -25,15 +28,19 @@ public class Forest : MonoBehaviour
         target = panel.transform.GetChild(0).gameObject;
         targetIndex = 0;
         treeSelectedIndex = 0;
+        t = 0;
     }
 
     private void Update()
     {
-        if (lerping)
+        t += Time.deltaTime;
+        //Debug.Log(Time.deltaTime);
+        if (lerping && t > 0.008)
         {
+            t = 0;
             Vector2 targetPosition = -target.GetComponent<RectTransform>().anchoredPosition;
             Vector2 currentPosition = panel.GetComponent<RectTransform>().anchoredPosition;
-            panel.GetComponent<RectTransform>().anchoredPosition += (targetPosition - currentPosition) * rate * Time.deltaTime;
+            panel.GetComponent<RectTransform>().anchoredPosition += (targetPosition - currentPosition) * rate;
             if (Vector2.Distance(currentPosition, targetPosition) < 10)
             {
                 lerping = false;

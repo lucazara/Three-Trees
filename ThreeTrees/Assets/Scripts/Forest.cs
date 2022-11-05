@@ -33,7 +33,7 @@ public class Forest : MonoBehaviour
         {
             Vector2 targetPosition = -target.GetComponent<RectTransform>().anchoredPosition;
             Vector2 currentPosition = panel.GetComponent<RectTransform>().anchoredPosition;
-            panel.GetComponent<RectTransform>().anchoredPosition += (targetPosition - currentPosition) * rate;
+            panel.GetComponent<RectTransform>().anchoredPosition += (targetPosition - currentPosition) * rate * Time.deltaTime;
             if (Vector2.Distance(currentPosition, targetPosition) < 10)
             {
                 lerping = false;

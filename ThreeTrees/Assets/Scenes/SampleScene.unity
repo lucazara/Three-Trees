@@ -316,8 +316,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.00003, y: 154}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -50.00003, y: 50}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127949422
 MonoBehaviour:
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e41a324dc344449bb0843daa111c790, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51da9a39e6dfd9844a72267455068ac6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1362,8 +1362,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -66.72}
-  m_SizeDelta: {x: 780.98, y: 1206.99}
+  m_AnchoredPosition: {x: 0, y: -50.77}
+  m_SizeDelta: {x: 780.98, y: 1238.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409955398
 MonoBehaviour:
@@ -1502,9 +1502,9 @@ MonoBehaviour:
   lymphLabel: {fileID: 475581583}
   treeTypeSprites:
   - {fileID: 21300000, guid: b858a28a519427340a22d2662fd917bb, type: 3}
-  - {fileID: 21300000, guid: cf2ddc64a36a44a01a8cf032cc93a72e, type: 3}
-  - {fileID: 21300000, guid: 58f9bc2ca881d3643a99a48731682f70, type: 3}
-  - {fileID: 21300000, guid: 5e41a324dc344449bb0843daa111c790, type: 3}
+  - {fileID: 21300000, guid: 8d449a83857bcad4184592f8560a29f2, type: 3}
+  - {fileID: 21300000, guid: 3f42bf94c6e7e7a43af8311aa0d2e501, type: 3}
+  - {fileID: 21300000, guid: 51da9a39e6dfd9844a72267455068ac6, type: 3}
   - {fileID: 21300000, guid: 039367d83da6142ffadfda36f30ae0a5, type: 3}
 --- !u!1 &474472310
 GameObject:
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf2ddc64a36a44a01a8cf032cc93a72e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d449a83857bcad4184592f8560a29f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2520,7 +2520,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623972299}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4e01f094837524c2cb6de9443d0a38d1, type: 3}
@@ -3772,7 +3772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 58f9bc2ca881d3643a99a48731682f70, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f42bf94c6e7e7a43af8311aa0d2e501, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4441,7 +4441,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217571052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4457,7 +4457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -15.949993}
   m_SizeDelta: {x: 2125, y: 2412.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217571054
@@ -4762,7 +4762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeSelectedIndex: 0
-  rate: 0.01
+  rate: 2.5
   lerping: 1
   treeManager: {fileID: 438157331}
 --- !u!1 &1311292001

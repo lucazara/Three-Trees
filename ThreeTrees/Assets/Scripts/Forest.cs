@@ -22,7 +22,7 @@ public class Forest : MonoBehaviour
 
 
 
-    private void Start()
+    public void Start()
     {
         panel = transform.GetChild(0).GetChild(0).gameObject;
         target = panel.transform.GetChild(0).gameObject;
@@ -65,9 +65,29 @@ public class Forest : MonoBehaviour
         treeManager.GetComponent<TreeManager>().UpdateSelectedTreeType();
     }
 
+    public void TouchedTreeOutOfForest(int index)
+    {
+        targetIndex = index;
+        treeSelectedIndex = index;
+        lerping = true;
+
+        treeManager.GetComponent<TreeManager>().UpdateSelectedTreeType();
+    }
+
     public void TouchedBackground()
     {
         lerping = false;
         targetIndex = -1;
+    }
+
+    public void Right()
+    {
+        TouchedTreeOutOfForest((treeSelectedIndex + 1) % 5);
+    }
+
+    public void Left()
+    {
+        if (treeSelectedIndex == 0) treeSelectedIndex = 5;
+        TouchedTreeOutOfForest((treeSelectedIndex - 1) % 5);
     }
 }

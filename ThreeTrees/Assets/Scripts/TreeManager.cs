@@ -67,6 +67,10 @@ public class TreeManager : MonoBehaviour
             //Animator animator = tree_objects[i].GetComponent<Animator>();
             //animator.enabled = false;
         }
+
+
+
+        //forest.GetComponent<Forest>().Start();
     }
 
     void Update()

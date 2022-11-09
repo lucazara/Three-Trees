@@ -122,7 +122,8 @@ public class TreeManager : MonoBehaviour
             trees[i] = new MyTree(tree_objects[i], 3 * selectedTreeType + i);
             trees[i].tree_object.GetComponent<Image>().sprite = treeTypeSprites[selectedTreeType];
         }
-
+        UpdateCostUpgradeLabel();
+        UpdateVisibleUpgrades();
     }
 
 
@@ -130,8 +131,11 @@ public class TreeManager : MonoBehaviour
     private void CalculateLymphPerClick()
     {
         lymph_per_click = 0;
-        foreach (MyTree tree in trees)
-            lymph_per_click += tree.lymph_per_click;
+        foreach (MyTree[] treeType in allTrees)
+            foreach (MyTree tree in treeType)
+                lymph_per_click += tree.lymph_per_click;
+
+        
     }
 
     private void UpdateVisibleUpgrades()

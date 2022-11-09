@@ -25,7 +25,6 @@ public class Forest : MonoBehaviour
     public void Start()
     {
         panel = transform.GetChild(0).GetChild(0).gameObject;
-        target = panel.transform.GetChild(0).gameObject;
         targetIndex = 0;
         treeSelectedIndex = 0;
         t = 0;
@@ -38,6 +37,7 @@ public class Forest : MonoBehaviour
         if (lerping && t > 0.008)
         {
             t = 0;
+            target = panel.transform.GetChild(targetIndex).gameObject;
             Vector2 targetPosition = -target.GetComponent<RectTransform>().anchoredPosition;
             Vector2 currentPosition = panel.GetComponent<RectTransform>().anchoredPosition;
             panel.GetComponent<RectTransform>().anchoredPosition += (targetPosition - currentPosition) * rate;
@@ -59,16 +59,6 @@ public class Forest : MonoBehaviour
     {
         targetIndex = index;
         treeSelectedIndex = index;
-        target = panel.transform.GetChild(index).gameObject;
-        lerping = true;
-
-        treeManager.GetComponent<TreeManager>().UpdateSelectedTreeType();
-    }
-
-    public void TouchedTreeOutOfForest(int index)
-    {
-        targetIndex = index;
-        treeSelectedIndex = index;
         lerping = true;
 
         treeManager.GetComponent<TreeManager>().UpdateSelectedTreeType();
@@ -82,12 +72,12 @@ public class Forest : MonoBehaviour
 
     public void Right()
     {
-        TouchedTreeOutOfForest((treeSelectedIndex + 1) % 5);
+        TouchedTree((treeSelectedIndex + 1) % 5);
     }
 
     public void Left()
     {
         if (treeSelectedIndex == 0) treeSelectedIndex = 5;
-        TouchedTreeOutOfForest((treeSelectedIndex - 1) % 5);
+        TouchedTree((treeSelectedIndex - 1) % 5);
     }
 }
